@@ -38,6 +38,7 @@ class M1sshfs < Formula
   end
 
   def install
+    system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "CPPFLAGS=-D_FILE_OFFSET_BITS=64 -I/usr/local/include/fuse -I/usr/local/include" 
     system "make", "install"
   end
